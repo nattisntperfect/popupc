@@ -1,0 +1,287 @@
+/* Reset dasar & Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #fff0f5; /* Lavender Blush */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* == Styling Halaman Utama (Desktop First) == */
+header {
+    background-color: #FFB6C1; /* Light Pink */
+    color: white;
+    padding: 20px 15px; /* Padding atas/bawah sedikit dikurangi */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em; /* Ukuran desktop */
+}
+
+main {
+    flex: 1;
+    padding: 30px 20px;
+    max-width: 900px; /* Lebar max di desktop */
+    width: 90%; /* Agar ada sedikit margin di layar lebar */
+    margin: 30px auto; /* Pusatkan konten utama di desktop */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    color: #FF69B4; /* Hot Pink */
+    border-bottom: 2px solid #FFC0CB; /* Pink */
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 1.8em; /* Ukuran desktop */
+}
+
+footer {
+    background-color: #f1f1f1;
+    color: #555;
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: auto;
+    border-top: 1px solid #ddd;
+    font-size: 0.9em; /* Ukuran desktop */
+}
+
+/* == Styling Pop-up dan Overlay (Basis Desktop) == */
+
+/* Overlay Latar Belakang */
+#popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+/* Kontainer Pop-up */
+#popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFC0CB; /* Pink */
+    padding: 30px 40px; /* Padding desktop */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+    width: 90%; /* Menggunakan persentase agar fleksibel */
+    max-width: 400px; /* Batas lebar di desktop */
+    border: 3px solid #FF69B4;
+    overflow: visible;
+}
+
+/* Styling Gambar dalam Pop-up */
+#popup-container img {
+    max-width: 100%; /* Selalu responsif */
+    height: auto; /* Selalu responsif */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid white;
+}
+
+/* Styling Teks dalam Pop-up */
+#popup-container p {
+    font-size: 1.3em; /* Ukuran desktop */
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+/* Kontainer Tombol */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Jarak antar tombol */
+}
+
+/* Styling Tombol Umum */
+#popup-container button {
+    padding: 12px 25px; /* Padding desktop */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em; /* Ukuran desktop */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#popup-container button:hover {
+    transform: scale(1.05); /* Efek hover hanya relevan di desktop */
+}
+
+/* Styling Tombol Spesifik */
+#yes-button {
+    background-color: #FF69B4;
+    color: white;
+}
+#yes-button:hover {
+    background-color: #ff85c1;
+}
+#no-button {
+    background-color: #f8f8f8;
+    color: #333;
+    border: 1px solid #ddd;
+}
+#no-button:hover {
+    background-color: #eee;
+}
+
+/* --- Animasi Bunga (Basis Desktop) --- */
+@keyframes floatFlower {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    50% { transform: translateY(-15px) rotate(10deg); opacity: 1; }
+}
+@keyframes floatFlowerReverse {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    50% { transform: translateY(15px) rotate(-10deg); opacity: 1; }
+}
+.flower {
+    position: absolute;
+    font-size: 25px; /* Ukuran desktop */
+    z-index: -1;
+    opacity: 0.8;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+/* Posisi Bunga (mungkin tidak perlu diubah drastis) */
+.flower1 { top: -15px; left: -10px; animation-name: floatFlower; animation-delay: 0s; }
+.flower2 { top: 80%; left: -20px; font-size: 20px; animation-name: floatFlowerReverse; animation-delay: 1s; } /* Ukuran sedikit beda */
+.flower3 { top: -20px; right: -15px; animation-name: floatFlowerReverse; animation-delay: 0.5s; }
+.flower4 { bottom: -15px; right: -10px; font-size: 22px; animation-name: floatFlower; animation-delay: 1.5s; } /* Ukuran sedikit beda */
+
+
+/* ============================================ */
+/* ==        MEDIA QUERIES RESPONSIVE        == */
+/* ============================================ */
+
+/* Untuk Tablet dan Layar Sedang (misal: <= 768px) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em; /* Sedikit lebih kecil */
+    }
+
+    main {
+        width: 95%; /* Sedikit lebih lebar */
+        margin: 20px auto; /* Margin atas/bawah dikurangi */
+        padding: 25px 15px; /* Padding dikurangi */
+    }
+
+    section h2 {
+        font-size: 1.6em; /* Sedikit lebih kecil */
+    }
+
+    #popup-container {
+        max-width: 380px; /* Sedikit lebih kecil */
+    }
+
+    #popup-container p {
+        font-size: 1.2em; /* Sedikit lebih kecil */
+    }
+
+    #popup-container button {
+        padding: 11px 22px; /* Sedikit lebih kecil */
+        font-size: 0.95em; /* Sedikit lebih kecil */
+    }
+
+     .flower {
+        font-size: 22px; /* Sedikit lebih kecil */
+    }
+    .flower2 { font-size: 18px; }
+    .flower4 { font-size: 20px; }
+}
+
+
+/* Untuk Ponsel (misal: <= 600px) */
+@media (max-width: 600px) {
+    header {
+        padding: 15px 10px;
+    }
+    header h1 {
+        font-size: 1.8em; /* Lebih kecil */
+    }
+    header p {
+        font-size: 0.9em;
+    }
+
+    main {
+        width: 100%; /* Gunakan lebar penuh */
+        margin: 15px 0; /* Hanya margin atas/bawah, tanpa auto */
+        padding: 20px 15px; /* Padding lebih kecil */
+        border-radius: 0; /* Hilangkan radius di mobile (opsional) */
+        box-shadow: none; /* Hilangkan shadow di mobile (opsional) */
+    }
+
+    section h2 {
+        font-size: 1.4em; /* Lebih kecil */
+    }
+
+    footer {
+        font-size: 0.8em; /* Lebih kecil */
+    }
+
+    /* Penyesuaian Pop-up untuk Mobile */
+    #popup-container {
+        padding: 20px 25px; /* Padding lebih kecil */
+        width: 90%; /* Tetap 90% agar tidak mentok tepi */
+        max-width: none; /* Hapus max-width agar width 90% berlaku */
+    }
+
+    #popup-container img {
+        margin-bottom: 10px;
+    }
+
+    #popup-container p {
+        font-size: 1.1em; /* Lebih kecil */
+        margin-bottom: 20px;
+    }
+
+    /* Opsi: Buat tombol menumpuk di mobile jika perlu */
+    /* .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #popup-container button {
+        width: 100%; // Tombol jadi lebar penuh jika menumpuk
+    } */
+
+    /* Jika tidak menumpuk, cukup kecilkan padding/font */
+     #popup-container button {
+        padding: 10px 18px; /* Padding lebih kecil */
+        font-size: 0.9em; /* Font lebih kecil */
+     }
+
+     /* Kecilkan bunga di mobile */
+     .flower {
+        font-size: 18px;
+     }
+     .flower1 { top: -10px; left: -8px;}
+     .flower2 { font-size: 15px; top: 85%; left: -12px; }
+     .flower3 { top: -12px; right: -10px; }
+     .flower4 { font-size: 16px; bottom: -8px; right: -8px; }
+
+     /* Menonaktifkan efek hover di mobile (karena tidak ada hover) */
+     #popup-container button:hover {
+        transform: none;
+     }
+}
